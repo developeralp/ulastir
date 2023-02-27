@@ -26,6 +26,11 @@ class RouteNavigationWidget extends ConsumerWidget {
                     color: Colors.indigo[600]);
               } else if (element is StationOrItem) {
                 return const RouteOrWidget();
+              } else if (element is StationTime) {
+                return StationTimeWidget(
+                  time: element.time,
+                  station: result.routeObj?.stationName ?? '',
+                );
               }
 
               return Container();
@@ -68,6 +73,48 @@ class RouteHeaderWidget extends StatelessWidget {
                 fontSize: 88.sp,
                 fontWeight: FontWeight.bold),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class StationTimeWidget extends StatelessWidget {
+  const StationTimeWidget(
+      {super.key, required this.time, required this.station});
+
+  final String time;
+  final String station;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 4.w),
+      padding: EdgeInsets.all(18.w),
+      decoration: BoxDecoration(
+        color: Colors.grey[900],
+        borderRadius: BorderRadius.circular(Designer.borderRadius),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            time,
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 88.sp,
+                fontWeight: FontWeight.bold),
+          ),
+          Expanded(
+            child: Text(
+              station,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 64.sp,
+                  fontWeight: FontWeight.w200),
+            ),
+          )
         ],
       ),
     );

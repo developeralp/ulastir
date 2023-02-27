@@ -114,11 +114,14 @@ class BurulasApi {
           routeObj.directionId == 0 ||
           routeObj.stationId == null ||
           routeObj.stationId == 0) {
+        log('null');
         return Future.value(null);
       }
 
       var response =
           await dio.post(apiURL('otobus-sefer-al.php'), data: formData);
+
+      log(response.data);
 
       dom.Document document = parse(response.toString());
 
@@ -152,6 +155,7 @@ class BurulasApi {
     for (var trBase in hourLines) {
       var td = trBase.getElementsByTagName('td')[1];
       var times = td.innerHtml.split(RegExp('\\s+'));
+      log('adding $times');
       result.addAll(times);
     }
 

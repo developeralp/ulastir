@@ -75,15 +75,6 @@ class _RouteDesignerPageState extends ConsumerState<RouteDesignerPage> {
                   title: 'ROTA EKLE',
                   onClicked: () => addRoute(),
                 )),
-            const Slack(),
-            if (routes.isNotEmpty)
-              SizedBox(
-                  width: double.infinity,
-                  child: CustomOutlinedButton(
-                    icon: Icons.assistant_direction_sharp,
-                    title: 'ALTERNATİF ROTA EKLE',
-                    onClicked: () => addRoute(alternative: true),
-                  )),
             const Spacer(),
             Center(
               child: OutlinedButton.icon(
