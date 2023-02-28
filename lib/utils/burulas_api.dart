@@ -84,6 +84,8 @@ class BurulasApi {
       }
     }
 
+    list.sort();
+
     return Future.value(list);
   }
 
@@ -101,13 +103,6 @@ class BurulasApi {
         'day': now.weekday,
       });
 
-      log({
-        'line': routeObj.lineId ?? 0,
-        'route': routeObj.directionId ?? 0,
-        'station': routeObj.stationId ?? 0,
-        'day': now.weekday,
-      }.toString());
-
       if (routeObj.lineId == null ||
           routeObj.lineId == 0 ||
           routeObj.directionId == null ||
@@ -120,8 +115,6 @@ class BurulasApi {
 
       var response =
           await dio.post(apiURL('otobus-sefer-al.php'), data: formData);
-
-      log(response.data);
 
       dom.Document document = parse(response.toString());
 
@@ -137,6 +130,14 @@ class BurulasApi {
           availables.add(StationTime(time: bus));
           availables.add(StationOrItem());
         }
+      }
+
+      if (availables[availables.length - 1] is StationOrItem) {
+        availables.removeAt(availables.length - 1);
+      }
+
+      if (availables.length == 1 && availables[0] is StationVehicleItem) {
+        return Future.value(null);
       }
 
       stationResult.list = availables;
@@ -155,7 +156,6 @@ class BurulasApi {
     for (var trBase in hourLines) {
       var td = trBase.getElementsByTagName('td')[1];
       var times = td.innerHtml.split(RegExp('\\s+'));
-      log('adding $times');
       result.addAll(times);
     }
 

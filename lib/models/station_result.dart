@@ -1,10 +1,45 @@
+import 'package:flutter/material.dart';
 import 'package:ulastir/models/saved_route.dart';
 
-class StationResult {
+import 'package:collection/collection.dart';
+
+class StationResult implements Comparable<StationResult> {
   List list = [];
   RouteObj? routeObj;
 
   StationResult({required this.list, this.routeObj});
+
+  @override
+  int compareTo(StationResult other) {
+    StationTime? ourFirstStationTime =
+        list.where((element) => element is StationTime).firstOrNull;
+
+    StationTime? theirFirstStationTime =
+        other.list.where((element) => element is StationTime).firstOrNull;
+
+    if (ourFirstStationTime != null && theirFirstStationTime != null) {
+      int ourHour = int.parse(ourFirstStationTime.time.split(':')[0]);
+      int ourMinute = int.parse(ourFirstStationTime.time.split(':')[1]);
+
+      int theirHour = int.parse(theirFirstStationTime.time.split(':')[0]);
+      int theirMinute = int.parse(theirFirstStationTime.time.split(':')[1]);
+
+      TimeOfDay ourTime = TimeOfDay(hour: ourHour, minute: ourMinute);
+
+      TimeOfDay theirTime = TimeOfDay(hour: theirHour, minute: theirMinute);
+
+      int ourSec = (ourTime.hour * 60 + ourTime.minute) * 60;
+      int theirSec = (theirTime.hour * 60 + theirTime.minute) * 60;
+
+      if (ourSec > theirSec) {
+        return 1;
+      } else {
+        return -1;
+      }
+    }
+
+    return 0;
+  }
 }
 
 class StationTime {
