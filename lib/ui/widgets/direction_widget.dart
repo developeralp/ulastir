@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:ulastir/ui/navigations.dart';
 import 'package:ulastir/models/saved_route.dart';
 import 'package:ulastir/ui/auto_complete/auto_complete_text_field.dart';
 import 'package:ulastir/ui/auto_complete/skeleton_auto_complete.dart';
@@ -25,6 +22,7 @@ class DirectionWidget extends ConsumerWidget {
     AsyncValue<List<SavedRoute>> savedRoutes = ref.watch(savedRoutesProvider);
 
     return Container(
+      width: double.infinity,
       margin: EdgeInsets.symmetric(vertical: 16.h),
       decoration: Designer.outlinedContainer,
       padding: EdgeInsets.all(32.w),

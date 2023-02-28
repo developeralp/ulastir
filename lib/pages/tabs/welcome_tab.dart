@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ulastir/models/saved_route.dart';
 import 'package:ulastir/models/station_result.dart';
 import 'package:ulastir/ui/misc/slack.dart';
@@ -32,6 +33,12 @@ final lastRouteTimesProvider =
   }
 });
 
+final showHowToUseProvider = FutureProvider.autoDispose<bool>((ref) async {
+  var sharedPreferences = await SharedPreferences.getInstance();
+
+  return sharedPreferences.getBool('show_how_to_use') ?? true;
+});
+
 class WelcomeTab extends ConsumerStatefulWidget {
   const WelcomeTab({super.key});
 
@@ -46,14 +53,33 @@ class _WelcomeTabState extends ConsumerState<WelcomeTab> {
     AsyncValue<StationResult?> lastRouteTimes =
         ref.watch(lastRouteTimesProvider);
 
+    AsyncValue<bool> showHowToUse = ref.watch(showHowToUseProvider);
+
     return Container(
         margin: EdgeInsets.all(28.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const DirectionWidget(),
-            const Slack(),
-            const HowToUseWidget(),
+            showHowToUse.when(
+                loading: () => const Text('Lütfen biraz bekleyin...'),
+                error: ((error, stackTrace) => Text('Hata: $error')),
+                data: (show) {
+                  if (show) {
+                    return Column(
+                      children: [
+                        const Slack(),
+                        HowToUseWidget(
+                          updateProvider: () {
+                            ref.refresh(showHowToUseProvider);
+                          },
+                        ),
+                      ],
+                    );
+                  }
+
+                  return Container();
+                }),
             const Spacer(),
             lastRoute.when(
               loading: () => const Text('Lütfen biraz bekleyin...'),

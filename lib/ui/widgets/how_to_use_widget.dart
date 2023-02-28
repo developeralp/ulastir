@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ulastir/ui/designer.dart';
 
 class HowToUseWidget extends StatelessWidget {
-  const HowToUseWidget({super.key});
+  const HowToUseWidget({super.key, required this.updateProvider});
+
+  final Function updateProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class HowToUseWidget extends StatelessWidget {
                   padding: EdgeInsets.all(8.w),
                   decoration: Designer.outlinedContainer,
                   child: InkWell(
-                      onTap: () {},
+                      onTap: () => dontShowAgain(),
                       child: Row(
                         children: [
                           Padding(
@@ -66,5 +68,11 @@ class HowToUseWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void dontShowAgain() async {
+    var prefs = await SharedPreferences.getInstance();
+    prefs.setBool('show_how_to_use', false);
+    updateProvider();
   }
 }
