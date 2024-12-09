@@ -4,12 +4,28 @@
   <img width="128" height="128" src="https://github.com/user-attachments/assets/76018b7a-cb1f-4acc-b052-eae8bef2ab84">
 </p>
 
+<h3 align="center">Ulaştır</h3>
 
-Ulaştır is an open-source Flutter app, which aims to help users in public transportation. 
+> #### Ulaştır [oo-lah-sh-tur]:
+>
+> It means "to deliver" or "to convey" in Turkish.
+> 
+> An amazing & open-source & public transportation stop schedule viewing app written in Flutter.
 
-It's an easy-to-use app. Currently, it only supports Bursa (Türkiye).
+## About
+- 💙 **Written in Flutter**. 
+- 📘 **Used Riverpod for reactive caching and data-binding**.
+- 🇹🇷 **Currently supports Bursa, Türkiye**.
+- 🖥️ 📱**Natively supports Web, Android, and iOS**.
+- 🇹🇷🇬🇧 **It has English and Turkish**.
+- 🧑🏻‍💻 **100% Open-Source**.
 
-The main motivation to develop this app was exercising Riverpod and showing public transportation bus station times to the users easily
+
+Ulaştır is an open-source Flutter app, which was developed to help users to see public transportation stop times.
+
+It's an easy-to-use app.
+
+## Screenshots
 
 ![1](https://github.com/user-attachments/assets/8917e9f5-0726-4e37-b78a-066036687d14)
 ![2](https://github.com/user-attachments/assets/661140b5-33ee-4bec-a59b-a0969440c28d)
