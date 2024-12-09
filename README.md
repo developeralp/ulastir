@@ -1,12 +1,18 @@
-# Ulaştır
+# Ulaştır!
 
-Ulaştır is a open-source Flutter app, which aims to help users in public transportation. 
+<p align="center">
+  <img width="128" height="128" src="https://github.com/user-attachments/assets/76018b7a-cb1f-4acc-b052-eae8bef2ab84">
+</p>
 
-It's ease-to-use app. Currently only supports Bursa (Türkiye).
 
-Main motivation to develop this app was exercising Riverpod and showing public transportation bus station times to the users easily.
+Ulaştır is an open-source Flutter app, which aims to help users in public transportation. 
 
-![home](https://user-images.githubusercontent.com/22075871/221623918-0d9610a4-1ff7-496b-bd49-3c09d6fd8efc.png)
-![travel](https://user-images.githubusercontent.com/22075871/221623932-e4b49abd-062b-47f6-a272-423a58d64c4b.png)
-![routes](https://user-images.githubusercontent.com/22075871/221623942-76c5373d-21d4-4ac7-96f5-45be1395cce3.png)
-![route_design](https://user-images.githubusercontent.com/22075871/221623947-da0b9cdb-975c-479b-8e2e-85d35e67593c.png)
+It's an easy-to-use app. Currently, it only supports Bursa (Türkiye).
+
+The main motivation to develop this app was exercising Riverpod and showing public transportation bus station times to the users easily
+
+![1](https://github.com/user-attachments/assets/8917e9f5-0726-4e37-b78a-066036687d14)
+![2](https://github.com/user-attachments/assets/661140b5-33ee-4bec-a59b-a0969440c28d)
+![3](https://github.com/user-attachments/assets/8702ba90-4712-4527-8e13-05a6d620a893)
+![4](https://github.com/user-attachments/assets/209be05a-1a02-4e17-b0f5-396923f51b46)
+![5](https://github.com/user-attachments/assets/c705758b-69fd-432d-a7d0-8903b3023ae8)
