@@ -64,7 +64,7 @@ class _RouteDesignWidgetState extends State<RouteDesignWidget> {
                   routeObj.lineName ?? '',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 52.sp,
+                      fontSize: 38.sp,
                       color: Designer.textColor),
                 )),
             SizedBox(width: 10.w),
