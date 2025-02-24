@@ -18,7 +18,7 @@ You can download APK from <a href="https://github.com/developeralp/ulastir/raw/r
 - 💙 **Written in Flutter**. 
 - 📘 **Used Riverpod for reactive caching and data-binding**.
 - 🇹🇷 **Currently supports Bursa, Türkiye**.
-- 🖥️ 📱**Natively supports Web, Android, and iOS**.
+- 📱**Works on Android, and iOS**.
 - 🇹🇷🇬🇧 **It has English and Turkish**.
 - 🧑🏻‍💻 **100% Open-Source**.
 
