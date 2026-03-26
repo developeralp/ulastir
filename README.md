@@ -6,13 +6,13 @@
 
 <h3 align="center">Ulaştır</h3>
 
+***Note: Ulaştır! Unfortunately no longer receives updates or shows public transportation times due to API changes at Burulas.***
+
 > #### Ulaştır [oo-lah-sh-tur]:
 >
 > It means "to deliver" or "to convey" in Turkish.
 > 
 > An amazing & open-source & public transportation stop schedule viewing app written in Flutter.
-
-You can download APK from <a href="https://github.com/developeralp/ulastir/raw/refs/heads/main/Ulastir.apk">here!</a>
 
 ## About
 - 💙 **Written in Flutter**. 
