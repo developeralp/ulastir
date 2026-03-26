@@ -1,0 +1,1 @@
+enum Lines { bus, rail }
